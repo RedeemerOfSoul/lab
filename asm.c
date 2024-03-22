@@ -220,7 +220,7 @@ int inst_to_binary(
         binary = (0x04 << 2) + 0x03 + (0x5 << 12);
         binary += (reg_to_num(arg1, line_no) << 7);
         binary += (reg_to_num(arg2, line_no) << 15);
-        binary += lower5bit(arg3,  line_no) << 20);
+        binary += (lower5bit(arg3,  line_no) << 20);
         binary += 0x00 << 25;
         //warn("Lab2-1 assignment: SRLI instruction\n");
         //exit(EXIT_FAILURE);
@@ -232,7 +232,7 @@ int inst_to_binary(
         binary = (0x04 << 2) + 0x03 + (0x5 << 12);
         binary += (reg_to_num(arg1, line_no) << 7);
         binary += (reg_to_num(arg2, line_no) << 15);
-        binary += lower5bit(arg3,  line_no) << 20);
+        binary += (lower5bit(arg3,  line_no) << 20);
         binary += 0x20 << 25;
         //warn("Lab2-1 assignment: SRAI instruction\n");
         //exit(EXIT_FAILURE);
