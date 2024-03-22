@@ -220,8 +220,8 @@ int inst_to_binary(
         binary = (0x04 << 2) + 0x03 + (0x5 << 12);
         binary += (reg_to_num(arg1, line_no) << 7);
         binary += (reg_to_num(arg2, line_no) << 15);
-        binary += (MASK4_0(lower5bit(arg3,  line_no)) << 20);
-        binary += 0x00 << 25
+        binary += lower5bit(arg3,  line_no) << 20);
+        binary += 0x00 << 25;
         //warn("Lab2-1 assignment: SRLI instruction\n");
         //exit(EXIT_FAILURE);
     } else if (is_opcode(opcode) == SRAI) {
@@ -232,8 +232,8 @@ int inst_to_binary(
         binary = (0x04 << 2) + 0x03 + (0x5 << 12);
         binary += (reg_to_num(arg1, line_no) << 7);
         binary += (reg_to_num(arg2, line_no) << 15);
-        binary += (MASK4_0(lower5bit(arg3,  line_no)) << 20);
-        binary += 0x20 << 25
+        binary += lower5bit(arg3,  line_no) << 20);
+        binary += 0x20 << 25;
         //warn("Lab2-1 assignment: SRAI instruction\n");
         //exit(EXIT_FAILURE);
     } else if (is_opcode(opcode) == ORI) {
@@ -475,8 +475,8 @@ int inst_to_binary(
         struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
         binary += (reg_to_num(ret->reg, line_no) << 15);
         int offset = MASK11_0(ret->imm);
-        binary += (offset & 0x01F) << 7);
-        binary += (offset & 0xFE0) << 20);
+        binary += ((offset & 0x01F) << 7);
+        binary += ((offset & 0xFE0) << 20);
         //warn("Lab2-1 assignment: SB instruction\n");
         //exit(EXIT_FAILURE);
     } else if (is_opcode(opcode) == SH) {
@@ -486,8 +486,8 @@ int inst_to_binary(
         struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
         binary += (reg_to_num(ret->reg, line_no) << 15);
         int offset = MASK11_0(ret->imm);
-        binary += (offset & 0x01F) << 7);
-        binary += (offset & 0xFE0) << 20);
+        binary += ((offset & 0x01F) << 7);
+        binary += ((offset & 0xFE0) << 20);
         //warn("Lab2-1 assignment: SH instruction\n");
         //exit(EXIT_FAILURE);
     } else if (is_opcode(opcode) == SW) {
@@ -497,8 +497,8 @@ int inst_to_binary(
         struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
         binary += (reg_to_num(ret->reg, line_no) << 15);
         int offset = MASK11_0(ret->imm);
-        binary += (offset & 0x01F) << 7);
-        binary += (offset & 0xFE0) << 20);
+        binary += ((offset & 0x01F) << 7);
+        binary += ((offset & 0xFE0) << 20);
         //warn("Lab2-1 assignment: SW instruction\n");
         //exit(EXIT_FAILURE);
     }
